@@ -1,2 +1,6 @@
 *~
 *.o
+*.user
+*.debug
+*.release
+*moc*
