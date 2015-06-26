@@ -2,21 +2,39 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMenu>
+#include <QMenuBar>
+#include <QToolBar>
+#include <QAction>
 
-namespace Ui {
-class MainWindow;
-}
+#include "workwidget.h"
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+private:
+    WorkWidget workWidget;
+
+    QMenu *fileMenu;
+
+    QToolBar *editToolBar;
+
+    QAction *newAction;
+    QAction *openAction;
+    QAction *editAction;
+    QAction *buildAction;
+    QAction *viewAction;
+    QAction *printAction;
+    QAction *exitAction;
+
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-private:
-    Ui::MainWindow *ui;
+    void createActions();
+    void createMenus();
+    void createToolBars();
 };
 
 #endif // MAINWINDOW_H
